@@ -18,4 +18,5 @@ message GreetResponse {
 
 service GreetService {
   rpc Greet(GreetRequest) returns (GreetResponse) {}
+  rpc GreetWithError(GreetRequest) returns (GreetResponse) {}
 }
