@@ -6,6 +6,8 @@ import (
 	"net/http"
 
 	"golang.org/x/exp/slog"
+	"golang.org/x/net/http2"
+	"golang.org/x/net/http2/h2c"
 
 	"github.com/emahiro/grpc-go-api-skelton/gen/proto/echo/v1/echov1connect"
 	"github.com/emahiro/grpc-go-api-skelton/gen/proto/greet/v1/greetv1connect"
@@ -25,7 +27,7 @@ func main() {
 
 	server := &http.Server{
 		Addr:    addr,
-		Handler: mux,
+		Handler: h2c.NewHandler(mux, &http2.Server{}),
 	}
 
 	go func() {
