@@ -10,6 +10,8 @@ import (
 	"golang.org/x/net/http2/h2c"
 
 	"github.com/bufbuild/connect-go"
+	otelconnect "github.com/bufbuild/connect-opentelemetry-go"
+	ddotel "gopkg.in/DataDog/dd-trace-go.v1/ddtrace/opentelemetry"
 
 	"github.com/emahiro/grpc-go-api-skelton/gen/proto/echo/v1/echov1connect"
 	"github.com/emahiro/grpc-go-api-skelton/gen/proto/greet/v1/greetv1connect"
@@ -24,8 +26,12 @@ func main() {
 	ctx, cancel := context.WithCancel(ctx)
 	defer cancel()
 
+	ddTraceProvider := ddotel.NewTracerProvider()
 	intercepters := connect.WithInterceptors(
 		intercepter.NewIntercepter(),
+		otelconnect.NewInterceptor(
+			otelconnect.WithTracerProvider(ddTraceProvider), // Set custom tracer provider
+		),
 	)
 
 	mux := http.NewServeMux()
