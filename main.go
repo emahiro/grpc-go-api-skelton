@@ -27,6 +27,11 @@ func main() {
 	defer cancel()
 
 	ddTraceProvider := ddotel.NewTracerProvider()
+	defer func() {
+		if err := ddTraceProvider.Shutdown(); err != nil {
+			panic(err)
+		}
+	}()
 	intercepters := connect.WithInterceptors(
 		intercepter.NewIntercepter(),
 		otelconnect.NewInterceptor(
