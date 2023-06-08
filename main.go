@@ -10,6 +10,7 @@ import (
 	"golang.org/x/net/http2/h2c"
 
 	"github.com/bufbuild/connect-go"
+	otelconnect "github.com/bufbuild/connect-opentelemetry-go"
 
 	"github.com/emahiro/grpc-go-api-skelton/gen/proto/echo/v1/echov1connect"
 	"github.com/emahiro/grpc-go-api-skelton/gen/proto/greet/v1/greetv1connect"
@@ -26,6 +27,7 @@ func main() {
 
 	intercepters := connect.WithInterceptors(
 		intercepter.NewIntercepter(),
+		otelconnect.NewInterceptor(),
 	)
 
 	mux := http.NewServeMux()
