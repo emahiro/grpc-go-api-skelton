@@ -9,8 +9,11 @@ import (
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/h2c"
 
+	"github.com/bufbuild/connect-go"
+
 	"github.com/emahiro/grpc-go-api-skelton/gen/proto/echo/v1/echov1connect"
 	"github.com/emahiro/grpc-go-api-skelton/gen/proto/greet/v1/greetv1connect"
+	"github.com/emahiro/grpc-go-api-skelton/intercepter"
 	"github.com/emahiro/grpc-go-api-skelton/service"
 )
 
@@ -21,9 +24,13 @@ func main() {
 	ctx, cancel := context.WithCancel(ctx)
 	defer cancel()
 
+	intercepters := connect.WithInterceptors(
+		intercepter.NewIntercepter(),
+	)
+
 	mux := http.NewServeMux()
-	mux.Handle(greetv1connect.NewGreetServiceHandler(&service.GreeterService{}))
-	mux.Handle(echov1connect.NewEchoServiceHandler(&service.EchoService{}))
+	mux.Handle(greetv1connect.NewGreetServiceHandler(&service.GreeterService{}, intercepters))
+	mux.Handle(echov1connect.NewEchoServiceHandler(&service.EchoService{}, intercepters))
 
 	server := &http.Server{
 		Addr:    addr,
