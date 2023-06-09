@@ -37,6 +37,7 @@ func main() {
 		otelconnect.NewInterceptor(
 			otelconnect.WithTracerProvider(ddTraceProvider), // Set custom tracer provider
 		),
+		intercepter.NewAuthIntercepter(),
 	)
 
 	mux := http.NewServeMux()
