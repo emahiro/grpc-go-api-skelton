@@ -23,4 +23,10 @@ func (s *GreeterService) Greet(ctx context.Context, req *connect.Request[v1.Gree
 	return resp, nil
 }
 
-func (s *GreeterService) GreetStreaming(ctx context.Context, req *connect.ClientStream[v1.GreetStreamingRequest]) (*connect.Response[v1.GreetStreamingResponse], error)
+func (s *GreeterService) GreetStreaming(ctx context.Context, stream *connect.ClientStream[v1.GreetStreamingRequest]) (*connect.Response[v1.GreetStreamingResponse], error) {
+	return nil, nil
+}
+
+func (s *GreeterService) GreetDidiStreaming(ctx context.Context, stream *connect.BidiStream[v1.GreetDidiStreamingRequest, v1.GreetDidiStreamingResponse]) error {
+	return nil
+}
