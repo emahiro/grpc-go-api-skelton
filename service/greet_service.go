@@ -22,3 +22,5 @@ func (s *GreeterService) Greet(ctx context.Context, req *connect.Request[v1.Gree
 	})
 	return resp, nil
 }
+
+func (s *GreeterService) GreetStreaming(ctx context.Context, req *connect.ClientStream[v1.GreetStreamingRequest]) (*connect.Response[v1.GreetStreamingResponse], error)
