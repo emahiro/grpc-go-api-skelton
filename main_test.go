@@ -26,17 +26,40 @@ func TestMain(m *testing.M) {
 }
 
 func TestGreetService_Greet(t *testing.T) {
-	req, _ := http.NewRequest(http.MethodPost, baseURL+path+"Greet", bytes.NewBuffer([]byte(`{"user_name": "taro"}`)))
-	req.Header.Set("Content-Type", "application/json")
-
-	resp, err := http.DefaultClient.Do(req)
-	if err != nil {
-		t.Fatal(err)
+	tests := []struct {
+		name      string
+		procedure string
+		body      []byte
+		want      int
+	}{
+		{
+			name:      "Greet success",
+			procedure: "Greet",
+			body:      []byte(`{"user_name": "taro"}`),
+			want:      http.StatusOK,
+		},
+		{
+			name:      "Greet bad request",
+			procedure: "Greet",
+			body:      nil,
+			want:      http.StatusBadRequest,
+		},
 	}
-	defer resp.Body.Close()
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			req, _ := http.NewRequest(http.MethodPost, baseURL+path+tt.procedure, bytes.NewBuffer(tt.body))
+			req.Header.Set("Content-Type", "application/json")
 
-	if resp.StatusCode != http.StatusOK {
-		b, _ := io.ReadAll(resp.Body)
-		t.Fatalf("expected status code %d, but got %d. err: %v", http.StatusOK, resp.StatusCode, string(b))
+			resp, err := http.DefaultClient.Do(req)
+			if err != nil {
+				t.Fatal(err)
+			}
+			defer resp.Body.Close()
+
+			if resp.StatusCode != tt.want {
+				b, _ := io.ReadAll(resp.Body)
+				t.Fatalf("expected status code %d, but got %d. err: %v", tt.want, resp.StatusCode, string(b))
+			}
+		})
 	}
 }
