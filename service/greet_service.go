@@ -3,7 +3,6 @@ package service
 import (
 	"context"
 	"errors"
-	"fmt"
 	"strings"
 
 	connect "github.com/bufbuild/connect-go"
@@ -20,7 +19,7 @@ func (s *GreeterService) Greet(ctx context.Context, req *connect.Request[v1.Gree
 		return nil, connect.NewError(connect.CodeInvalidArgument, errors.New("user name is empty"))
 	}
 	resp := connect.NewResponse(&v1.GreetResponse{
-		Message: fmt.Sprintf("Hello %s", userName),
+		Message: "Hello" + userName,
 	})
 	return resp, nil
 }
@@ -29,7 +28,7 @@ func (s *GreeterService) GreetStreaming(ctx context.Context, stream *connect.Cli
 	slog.InfoCtx(ctx, "request header", "header", stream.RequestHeader())
 	var message strings.Builder
 	for stream.Receive() {
-		g := fmt.Sprintf("Hello, %s\n", stream.Msg().UserName)
+		g := "Hello, " + stream.Msg().UserName
 		if _, err := message.WriteString(g); err != nil {
 			return nil, connect.NewError(connect.CodeInternal, err)
 		}
