@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 
 	"golang.org/x/exp/slog"
@@ -56,7 +55,7 @@ func main() {
 		}
 	}()
 
-	slog.InfoCtx(ctx, "start server", "port", fmt.Sprintf("localhost%s", addr))
+	slog.InfoCtx(ctx, "start server", "port", "localhost"+addr)
 	if err := server.ListenAndServe(); err != nil {
 		panic(err)
 	}
