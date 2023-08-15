@@ -7,7 +7,7 @@ import "buf/validate/validate.proto";
 
 message Greet {
   int32 id = 1;
-  string message = 2;
+  string message = 2 [(buf.validate.field).string.min_len = 2];
   int32 user_name = 3;
 }
 
