@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	connect "github.com/bufbuild/connect-go"
+	protovalidate "github.com/bufbuild/protovalidate-go"
 	"golang.org/x/exp/slog"
 
 	v1 "github.com/emahiro/grpc-go-api-skelton/gen/proto/greet/v1"
@@ -14,6 +15,14 @@ import (
 type GreeterService struct{}
 
 func (s *GreeterService) Greet(ctx context.Context, req *connect.Request[v1.GreetRequest]) (*connect.Response[v1.GreetResponse], error) {
+	v, err := protovalidate.New()
+	if err != nil {
+		return nil, err
+	}
+	if err := v.Validate(req.Msg); err != nil {
+		return nil, connect.NewError(connect.CodeInvalidArgument, err)
+	}
+
 	userName := req.Msg.UserName
 	if userName == "" {
 		return nil, connect.NewError(connect.CodeInvalidArgument, errors.New("user name is empty"))
