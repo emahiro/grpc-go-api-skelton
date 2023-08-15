@@ -1,6 +1,6 @@
 module github.com/emahiro/grpc-go-api-skelton
 
-go 1.20
+go 1.21.0
 
 require (
 	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.31.0-20230802163732-1c33ebd9ecfa.1
