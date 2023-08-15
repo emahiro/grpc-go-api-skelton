@@ -23,69 +23,6 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-type Greet struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Id       int32  `protobuf:"varint,1,opt,name=id,proto3" json:"id,omitempty"`
-	Message  string `protobuf:"bytes,2,opt,name=message,proto3" json:"message,omitempty"`
-	UserName int32  `protobuf:"varint,3,opt,name=user_name,json=userName,proto3" json:"user_name,omitempty"`
-}
-
-func (x *Greet) Reset() {
-	*x = Greet{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_greet_v1_greet_proto_msgTypes[0]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *Greet) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*Greet) ProtoMessage() {}
-
-func (x *Greet) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_greet_v1_greet_proto_msgTypes[0]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use Greet.ProtoReflect.Descriptor instead.
-func (*Greet) Descriptor() ([]byte, []int) {
-	return file_proto_greet_v1_greet_proto_rawDescGZIP(), []int{0}
-}
-
-func (x *Greet) GetId() int32 {
-	if x != nil {
-		return x.Id
-	}
-	return 0
-}
-
-func (x *Greet) GetMessage() string {
-	if x != nil {
-		return x.Message
-	}
-	return ""
-}
-
-func (x *Greet) GetUserName() int32 {
-	if x != nil {
-		return x.UserName
-	}
-	return 0
-}
-
 type GreetRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
@@ -97,7 +34,7 @@ type GreetRequest struct {
 func (x *GreetRequest) Reset() {
 	*x = GreetRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_greet_v1_greet_proto_msgTypes[1]
+		mi := &file_proto_greet_v1_greet_proto_msgTypes[0]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -110,7 +47,7 @@ func (x *GreetRequest) String() string {
 func (*GreetRequest) ProtoMessage() {}
 
 func (x *GreetRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_greet_v1_greet_proto_msgTypes[1]
+	mi := &file_proto_greet_v1_greet_proto_msgTypes[0]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -123,7 +60,7 @@ func (x *GreetRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GreetRequest.ProtoReflect.Descriptor instead.
 func (*GreetRequest) Descriptor() ([]byte, []int) {
-	return file_proto_greet_v1_greet_proto_rawDescGZIP(), []int{1}
+	return file_proto_greet_v1_greet_proto_rawDescGZIP(), []int{0}
 }
 
 func (x *GreetRequest) GetUserName() string {
@@ -144,7 +81,7 @@ type GreetResponse struct {
 func (x *GreetResponse) Reset() {
 	*x = GreetResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_greet_v1_greet_proto_msgTypes[2]
+		mi := &file_proto_greet_v1_greet_proto_msgTypes[1]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -157,7 +94,7 @@ func (x *GreetResponse) String() string {
 func (*GreetResponse) ProtoMessage() {}
 
 func (x *GreetResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_greet_v1_greet_proto_msgTypes[2]
+	mi := &file_proto_greet_v1_greet_proto_msgTypes[1]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -170,7 +107,7 @@ func (x *GreetResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GreetResponse.ProtoReflect.Descriptor instead.
 func (*GreetResponse) Descriptor() ([]byte, []int) {
-	return file_proto_greet_v1_greet_proto_rawDescGZIP(), []int{2}
+	return file_proto_greet_v1_greet_proto_rawDescGZIP(), []int{1}
 }
 
 func (x *GreetResponse) GetMessage() string {
@@ -191,7 +128,7 @@ type GreetStreamingRequest struct {
 func (x *GreetStreamingRequest) Reset() {
 	*x = GreetStreamingRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_greet_v1_greet_proto_msgTypes[3]
+		mi := &file_proto_greet_v1_greet_proto_msgTypes[2]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -204,7 +141,7 @@ func (x *GreetStreamingRequest) String() string {
 func (*GreetStreamingRequest) ProtoMessage() {}
 
 func (x *GreetStreamingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_greet_v1_greet_proto_msgTypes[3]
+	mi := &file_proto_greet_v1_greet_proto_msgTypes[2]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -217,7 +154,7 @@ func (x *GreetStreamingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GreetStreamingRequest.ProtoReflect.Descriptor instead.
 func (*GreetStreamingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_greet_v1_greet_proto_rawDescGZIP(), []int{3}
+	return file_proto_greet_v1_greet_proto_rawDescGZIP(), []int{2}
 }
 
 func (x *GreetStreamingRequest) GetUserName() string {
@@ -238,7 +175,7 @@ type GreetStreamingResponse struct {
 func (x *GreetStreamingResponse) Reset() {
 	*x = GreetStreamingResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_greet_v1_greet_proto_msgTypes[4]
+		mi := &file_proto_greet_v1_greet_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -251,7 +188,7 @@ func (x *GreetStreamingResponse) String() string {
 func (*GreetStreamingResponse) ProtoMessage() {}
 
 func (x *GreetStreamingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_greet_v1_greet_proto_msgTypes[4]
+	mi := &file_proto_greet_v1_greet_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -264,7 +201,7 @@ func (x *GreetStreamingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GreetStreamingResponse.ProtoReflect.Descriptor instead.
 func (*GreetStreamingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_greet_v1_greet_proto_rawDescGZIP(), []int{4}
+	return file_proto_greet_v1_greet_proto_rawDescGZIP(), []int{3}
 }
 
 func (x *GreetStreamingResponse) GetMessage() string {
@@ -285,7 +222,7 @@ type GreetDidiStreamingRequest struct {
 func (x *GreetDidiStreamingRequest) Reset() {
 	*x = GreetDidiStreamingRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_greet_v1_greet_proto_msgTypes[5]
+		mi := &file_proto_greet_v1_greet_proto_msgTypes[4]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -298,7 +235,7 @@ func (x *GreetDidiStreamingRequest) String() string {
 func (*GreetDidiStreamingRequest) ProtoMessage() {}
 
 func (x *GreetDidiStreamingRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_greet_v1_greet_proto_msgTypes[5]
+	mi := &file_proto_greet_v1_greet_proto_msgTypes[4]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -311,7 +248,7 @@ func (x *GreetDidiStreamingRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GreetDidiStreamingRequest.ProtoReflect.Descriptor instead.
 func (*GreetDidiStreamingRequest) Descriptor() ([]byte, []int) {
-	return file_proto_greet_v1_greet_proto_rawDescGZIP(), []int{5}
+	return file_proto_greet_v1_greet_proto_rawDescGZIP(), []int{4}
 }
 
 func (x *GreetDidiStreamingRequest) GetUserName() string {
@@ -332,7 +269,7 @@ type GreetDidiStreamingResponse struct {
 func (x *GreetDidiStreamingResponse) Reset() {
 	*x = GreetDidiStreamingResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_proto_greet_v1_greet_proto_msgTypes[6]
+		mi := &file_proto_greet_v1_greet_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -345,7 +282,7 @@ func (x *GreetDidiStreamingResponse) String() string {
 func (*GreetDidiStreamingResponse) ProtoMessage() {}
 
 func (x *GreetDidiStreamingResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_proto_greet_v1_greet_proto_msgTypes[6]
+	mi := &file_proto_greet_v1_greet_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -358,7 +295,7 @@ func (x *GreetDidiStreamingResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GreetDidiStreamingResponse.ProtoReflect.Descriptor instead.
 func (*GreetDidiStreamingResponse) Descriptor() ([]byte, []int) {
-	return file_proto_greet_v1_greet_proto_rawDescGZIP(), []int{6}
+	return file_proto_greet_v1_greet_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GreetDidiStreamingResponse) GetMessage() string {
@@ -375,15 +312,10 @@ var file_proto_greet_v1_greet_proto_rawDesc = []byte{
 	0x2f, 0x67, 0x72, 0x65, 0x65, 0x74, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x0e, 0x70, 0x72,
 	0x6f, 0x74, 0x6f, 0x2e, 0x67, 0x72, 0x65, 0x65, 0x74, 0x2e, 0x76, 0x31, 0x1a, 0x1b, 0x62, 0x75,
 	0x66, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64, 0x61, 0x74, 0x65, 0x2f, 0x76, 0x61, 0x6c, 0x69, 0x64,
-	0x61, 0x74, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x57, 0x0a, 0x05, 0x47, 0x72, 0x65,
-	0x65, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x05, 0x52, 0x02,
-	0x69, 0x64, 0x12, 0x21, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20,
-	0x01, 0x28, 0x09, 0x42, 0x07, 0xba, 0x48, 0x04, 0x72, 0x02, 0x10, 0x02, 0x52, 0x07, 0x6d, 0x65,
-	0x73, 0x73, 0x61, 0x67, 0x65, 0x12, 0x1b, 0x0a, 0x09, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x6e, 0x61,
-	0x6d, 0x65, 0x18, 0x03, 0x20, 0x01, 0x28, 0x05, 0x52, 0x08, 0x75, 0x73, 0x65, 0x72, 0x4e, 0x61,
-	0x6d, 0x65, 0x22, 0x2b, 0x0a, 0x0c, 0x47, 0x72, 0x65, 0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x12, 0x1b, 0x0a, 0x09, 0x75, 0x73, 0x65, 0x72, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18,
-	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x08, 0x75, 0x73, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x22,
+	0x61, 0x74, 0x65, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x34, 0x0a, 0x0c, 0x47, 0x72, 0x65,
+	0x65, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x24, 0x0a, 0x09, 0x75, 0x73, 0x65,
+	0x72, 0x5f, 0x6e, 0x61, 0x6d, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x42, 0x07, 0xba, 0x48,
+	0x04, 0x72, 0x02, 0x10, 0x03, 0x52, 0x08, 0x75, 0x73, 0x65, 0x72, 0x4e, 0x61, 0x6d, 0x65, 0x22,
 	0x29, 0x0a, 0x0d, 0x47, 0x72, 0x65, 0x65, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
 	0x12, 0x18, 0x0a, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28,
 	0x09, 0x52, 0x07, 0x6d, 0x65, 0x73, 0x73, 0x61, 0x67, 0x65, 0x22, 0x34, 0x0a, 0x15, 0x47, 0x72,
@@ -446,23 +378,22 @@ func file_proto_greet_v1_greet_proto_rawDescGZIP() []byte {
 	return file_proto_greet_v1_greet_proto_rawDescData
 }
 
-var file_proto_greet_v1_greet_proto_msgTypes = make([]protoimpl.MessageInfo, 7)
+var file_proto_greet_v1_greet_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
 var file_proto_greet_v1_greet_proto_goTypes = []interface{}{
-	(*Greet)(nil),                      // 0: proto.greet.v1.Greet
-	(*GreetRequest)(nil),               // 1: proto.greet.v1.GreetRequest
-	(*GreetResponse)(nil),              // 2: proto.greet.v1.GreetResponse
-	(*GreetStreamingRequest)(nil),      // 3: proto.greet.v1.GreetStreamingRequest
-	(*GreetStreamingResponse)(nil),     // 4: proto.greet.v1.GreetStreamingResponse
-	(*GreetDidiStreamingRequest)(nil),  // 5: proto.greet.v1.GreetDidiStreamingRequest
-	(*GreetDidiStreamingResponse)(nil), // 6: proto.greet.v1.GreetDidiStreamingResponse
+	(*GreetRequest)(nil),               // 0: proto.greet.v1.GreetRequest
+	(*GreetResponse)(nil),              // 1: proto.greet.v1.GreetResponse
+	(*GreetStreamingRequest)(nil),      // 2: proto.greet.v1.GreetStreamingRequest
+	(*GreetStreamingResponse)(nil),     // 3: proto.greet.v1.GreetStreamingResponse
+	(*GreetDidiStreamingRequest)(nil),  // 4: proto.greet.v1.GreetDidiStreamingRequest
+	(*GreetDidiStreamingResponse)(nil), // 5: proto.greet.v1.GreetDidiStreamingResponse
 }
 var file_proto_greet_v1_greet_proto_depIdxs = []int32{
-	1, // 0: proto.greet.v1.GreetService.Greet:input_type -> proto.greet.v1.GreetRequest
-	3, // 1: proto.greet.v1.GreetService.GreetStreaming:input_type -> proto.greet.v1.GreetStreamingRequest
-	5, // 2: proto.greet.v1.GreetService.GreetDidiStreaming:input_type -> proto.greet.v1.GreetDidiStreamingRequest
-	2, // 3: proto.greet.v1.GreetService.Greet:output_type -> proto.greet.v1.GreetResponse
-	4, // 4: proto.greet.v1.GreetService.GreetStreaming:output_type -> proto.greet.v1.GreetStreamingResponse
-	6, // 5: proto.greet.v1.GreetService.GreetDidiStreaming:output_type -> proto.greet.v1.GreetDidiStreamingResponse
+	0, // 0: proto.greet.v1.GreetService.Greet:input_type -> proto.greet.v1.GreetRequest
+	2, // 1: proto.greet.v1.GreetService.GreetStreaming:input_type -> proto.greet.v1.GreetStreamingRequest
+	4, // 2: proto.greet.v1.GreetService.GreetDidiStreaming:input_type -> proto.greet.v1.GreetDidiStreamingRequest
+	1, // 3: proto.greet.v1.GreetService.Greet:output_type -> proto.greet.v1.GreetResponse
+	3, // 4: proto.greet.v1.GreetService.GreetStreaming:output_type -> proto.greet.v1.GreetStreamingResponse
+	5, // 5: proto.greet.v1.GreetService.GreetDidiStreaming:output_type -> proto.greet.v1.GreetDidiStreamingResponse
 	3, // [3:6] is the sub-list for method output_type
 	0, // [0:3] is the sub-list for method input_type
 	0, // [0:0] is the sub-list for extension type_name
@@ -477,18 +408,6 @@ func file_proto_greet_v1_greet_proto_init() {
 	}
 	if !protoimpl.UnsafeEnabled {
 		file_proto_greet_v1_greet_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*Greet); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_proto_greet_v1_greet_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GreetRequest); i {
 			case 0:
 				return &v.state
@@ -500,7 +419,7 @@ func file_proto_greet_v1_greet_proto_init() {
 				return nil
 			}
 		}
-		file_proto_greet_v1_greet_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_greet_v1_greet_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GreetResponse); i {
 			case 0:
 				return &v.state
@@ -512,7 +431,7 @@ func file_proto_greet_v1_greet_proto_init() {
 				return nil
 			}
 		}
-		file_proto_greet_v1_greet_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_greet_v1_greet_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GreetStreamingRequest); i {
 			case 0:
 				return &v.state
@@ -524,7 +443,7 @@ func file_proto_greet_v1_greet_proto_init() {
 				return nil
 			}
 		}
-		file_proto_greet_v1_greet_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_greet_v1_greet_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GreetStreamingResponse); i {
 			case 0:
 				return &v.state
@@ -536,7 +455,7 @@ func file_proto_greet_v1_greet_proto_init() {
 				return nil
 			}
 		}
-		file_proto_greet_v1_greet_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_greet_v1_greet_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GreetDidiStreamingRequest); i {
 			case 0:
 				return &v.state
@@ -548,7 +467,7 @@ func file_proto_greet_v1_greet_proto_init() {
 				return nil
 			}
 		}
-		file_proto_greet_v1_greet_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+		file_proto_greet_v1_greet_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GreetDidiStreamingResponse); i {
 			case 0:
 				return &v.state
@@ -567,7 +486,7 @@ func file_proto_greet_v1_greet_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_greet_v1_greet_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   7,
+			NumMessages:   6,
 			NumExtensions: 0,
 			NumServices:   1,
 		},
