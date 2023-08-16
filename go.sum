@@ -83,6 +83,8 @@ github.com/golang/protobuf v1.5.2/go.mod h1:XVQd3VNwM+JqD3oG2Ue2ip4fOMUkwXdXDdiu
 github.com/golang/snappy v0.0.4/go.mod h1:/XxbfmMg8lxefKM7IXC3fBNl/7bRcc72aCRzEWrmP2Q=
 github.com/google/cel-go v0.17.2-0.20230814204048-bf4f82c46582 h1:OwxB3DTH2fK0wivS2rgA3ccEmb2nR+Za9Rz4kuIY6Fs=
 github.com/google/cel-go v0.17.2-0.20230814204048-bf4f82c46582/go.mod h1:HXZKzB0LXqer5lHHgfWAnlYwJaQBDKMjxjulNQzhwhY=
+github.com/google/cel-go v0.17.2-0.20230815233040-51cf846fcbb3 h1:RtKGqshiZyy2weNSIQSK9W/Y4a4begUZ6CVVlBj0Bt0=
+github.com/google/cel-go v0.17.2-0.20230815233040-51cf846fcbb3/go.mod h1:HXZKzB0LXqer5lHHgfWAnlYwJaQBDKMjxjulNQzhwhY=
 github.com/google/go-cmp v0.2.0/go.mod h1:oXzfMopK8JAjlY9xF4vHSVASa0yLyX7SntLO5aqRK0M=
 github.com/google/go-cmp v0.3.0/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMywk6iLU=
 github.com/google/go-cmp v0.3.1/go.mod h1:8QqcDgzrUqlUb/G2PQTWiueGozuR1884gddMywk6iLU=

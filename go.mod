@@ -28,7 +28,7 @@ require (
 	github.com/go-logr/logr v1.2.4 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
-	github.com/google/cel-go v0.17.2-0.20230814204048-bf4f82c46582 // indirect
+	github.com/google/cel-go v0.17.2-0.20230815233040-51cf846fcbb3 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/outcaste-io/ristretto v0.2.1 // indirect
 	github.com/philhofer/fwd v1.1.1 // indirect
