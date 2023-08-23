@@ -4,12 +4,11 @@ import (
 	"context"
 	"net/http"
 
+	"connectrpc.com/connect"
+	"connectrpc.com/otelconnect"
 	"golang.org/x/exp/slog"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/h2c"
-
-	"github.com/bufbuild/connect-go"
-	otelconnect "github.com/bufbuild/connect-opentelemetry-go"
 	ddotel "gopkg.in/DataDog/dd-trace-go.v1/ddtrace/opentelemetry"
 
 	"github.com/emahiro/grpc-go-api-skelton/gen/proto/echo/v1/echov1connect"

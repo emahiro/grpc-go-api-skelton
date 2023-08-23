@@ -4,7 +4,7 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/bufbuild/connect-go"
+	"connectrpc.com/connect"
 	"golang.org/x/exp/slog"
 
 	greetv1 "github.com/emahiro/grpc-go-api-skelton/gen/proto/greet/v1"

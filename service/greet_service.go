@@ -5,7 +5,7 @@ import (
 	"errors"
 	"strings"
 
-	connect "github.com/bufbuild/connect-go"
+	"connectrpc.com/connect"
 	protovalidate "github.com/bufbuild/protovalidate-go"
 	"golang.org/x/exp/slog"
 
