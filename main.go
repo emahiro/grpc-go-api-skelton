@@ -6,6 +6,7 @@ import (
 
 	"connectrpc.com/connect"
 	"connectrpc.com/otelconnect"
+	protovalidate "github.com/bufbuild/protovalidate-go"
 	"golang.org/x/exp/slog"
 	"golang.org/x/net/http2"
 	"golang.org/x/net/http2/h2c"
@@ -38,8 +39,15 @@ func main() {
 		intercepter.NewAuthIntercepter(),
 	)
 
+	v, err := protovalidate.New()
+	if err != nil {
+		panic(err)
+	}
+
 	mux := http.NewServeMux()
-	mux.Handle(greetv1connect.NewGreetServiceHandler(&service.GreeterService{}, intercepters))
+	mux.Handle(greetv1connect.NewGreetServiceHandler(&service.GreeterService{
+		Validator: v,
+	}, intercepters))
 	mux.Handle(echov1connect.NewEchoServiceHandler(&service.EchoService{}, intercepters))
 
 	server := &http.Server{

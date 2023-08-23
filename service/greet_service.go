@@ -6,14 +6,20 @@ import (
 	"strings"
 
 	"connectrpc.com/connect"
+	protovalidate "github.com/bufbuild/protovalidate-go"
 	"golang.org/x/exp/slog"
 
 	v1 "github.com/emahiro/grpc-go-api-skelton/gen/proto/greet/v1"
 )
 
-type GreeterService struct{}
+type GreeterService struct {
+	Validator *protovalidate.Validator
+}
 
 func (s *GreeterService) Greet(ctx context.Context, req *connect.Request[v1.GreetRequest]) (*connect.Response[v1.GreetResponse], error) {
+	if s.Validator.Validate(req.Msg) != nil {
+		return nil, connect.NewError(connect.CodeInvalidArgument, errors.New("invalid argument"))
+	}
 	userName := req.Msg.UserName
 	if userName == "" {
 		return nil, connect.NewError(connect.CodeInvalidArgument, errors.New("user name is empty"))

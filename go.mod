@@ -6,6 +6,7 @@ require (
 	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.31.0-20230802163732-1c33ebd9ecfa.1
 	connectrpc.com/connect v1.11.0
 	connectrpc.com/otelconnect v0.5.0
+	github.com/bufbuild/protovalidate-go v0.2.1
 	golang.org/x/exp v0.0.0-20230522175609-2e198f4a06a1
 	golang.org/x/net v0.14.0
 	google.golang.org/protobuf v1.31.0
@@ -21,16 +22,19 @@ require (
 	github.com/DataDog/go-tuf v0.3.0--fix-localmeta-fork // indirect
 	github.com/DataDog/sketches-go v1.2.1 // indirect
 	github.com/Microsoft/go-winio v0.5.1 // indirect
+	github.com/antlr/antlr4/runtime/Go/antlr/v4 v4.0.0-20230512164433-5d1fd1a340c9 // indirect
 	github.com/cespare/xxhash/v2 v2.2.0 // indirect
 	github.com/dustin/go-humanize v1.0.0 // indirect
 	github.com/go-logr/logr v1.2.4 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
+	github.com/google/cel-go v0.17.1 // indirect
 	github.com/google/uuid v1.3.0 // indirect
 	github.com/outcaste-io/ristretto v0.2.1 // indirect
 	github.com/philhofer/fwd v1.1.1 // indirect
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/secure-systems-lab/go-securesystemslib v0.5.0 // indirect
+	github.com/stoewer/go-strcase v1.3.0 // indirect
 	github.com/tinylib/msgp v1.1.6 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.42.0 // indirect
 	go.opentelemetry.io/otel v1.16.0 // indirect
