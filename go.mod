@@ -4,6 +4,7 @@ go 1.21.0
 
 require (
 	buf.build/gen/go/bufbuild/protovalidate/protocolbuffers/go v1.31.0-20230802163732-1c33ebd9ecfa.1
+	connectrpc.com/connect v1.11.0
 	github.com/bufbuild/connect-go v1.8.0
 	github.com/bufbuild/connect-opentelemetry-go v0.4.0
 	github.com/bufbuild/protovalidate-go v0.2.1

@@ -7,9 +7,9 @@
 package greetv1connect
 
 import (
+	connect "connectrpc.com/connect"
 	context "context"
 	errors "errors"
-	connect_go "github.com/bufbuild/connect-go"
 	v1 "github.com/emahiro/grpc-go-api-skelton/gen/proto/greet/v1"
 	http "net/http"
 	strings "strings"
@@ -20,7 +20,7 @@ import (
 // generated with a version of connect newer than the one compiled into your binary. You can fix the
 // problem by either regenerating this code with an older version of connect or updating the connect
 // version compiled into your binary.
-const _ = connect_go.IsAtLeastVersion0_1_0
+const _ = connect.IsAtLeastVersion0_1_0
 
 const (
 	// GreetServiceName is the fully-qualified name of the GreetService service.
@@ -47,9 +47,9 @@ const (
 
 // GreetServiceClient is a client for the proto.greet.v1.GreetService service.
 type GreetServiceClient interface {
-	Greet(context.Context, *connect_go.Request[v1.GreetRequest]) (*connect_go.Response[v1.GreetResponse], error)
-	GreetStreaming(context.Context) *connect_go.ClientStreamForClient[v1.GreetStreamingRequest, v1.GreetStreamingResponse]
-	GreetDidiStreaming(context.Context) *connect_go.BidiStreamForClient[v1.GreetDidiStreamingRequest, v1.GreetDidiStreamingResponse]
+	Greet(context.Context, *connect.Request[v1.GreetRequest]) (*connect.Response[v1.GreetResponse], error)
+	GreetStreaming(context.Context) *connect.ClientStreamForClient[v1.GreetStreamingRequest, v1.GreetStreamingResponse]
+	GreetDidiStreaming(context.Context) *connect.BidiStreamForClient[v1.GreetDidiStreamingRequest, v1.GreetDidiStreamingResponse]
 }
 
 // NewGreetServiceClient constructs a client for the proto.greet.v1.GreetService service. By
@@ -59,20 +59,20 @@ type GreetServiceClient interface {
 //
 // The URL supplied here should be the base URL for the Connect or gRPC server (for example,
 // http://api.acme.com or https://acme.com/grpc).
-func NewGreetServiceClient(httpClient connect_go.HTTPClient, baseURL string, opts ...connect_go.ClientOption) GreetServiceClient {
+func NewGreetServiceClient(httpClient connect.HTTPClient, baseURL string, opts ...connect.ClientOption) GreetServiceClient {
 	baseURL = strings.TrimRight(baseURL, "/")
 	return &greetServiceClient{
-		greet: connect_go.NewClient[v1.GreetRequest, v1.GreetResponse](
+		greet: connect.NewClient[v1.GreetRequest, v1.GreetResponse](
 			httpClient,
 			baseURL+GreetServiceGreetProcedure,
 			opts...,
 		),
-		greetStreaming: connect_go.NewClient[v1.GreetStreamingRequest, v1.GreetStreamingResponse](
+		greetStreaming: connect.NewClient[v1.GreetStreamingRequest, v1.GreetStreamingResponse](
 			httpClient,
 			baseURL+GreetServiceGreetStreamingProcedure,
 			opts...,
 		),
-		greetDidiStreaming: connect_go.NewClient[v1.GreetDidiStreamingRequest, v1.GreetDidiStreamingResponse](
+		greetDidiStreaming: connect.NewClient[v1.GreetDidiStreamingRequest, v1.GreetDidiStreamingResponse](
 			httpClient,
 			baseURL+GreetServiceGreetDidiStreamingProcedure,
 			opts...,
@@ -82,31 +82,31 @@ func NewGreetServiceClient(httpClient connect_go.HTTPClient, baseURL string, opt
 
 // greetServiceClient implements GreetServiceClient.
 type greetServiceClient struct {
-	greet              *connect_go.Client[v1.GreetRequest, v1.GreetResponse]
-	greetStreaming     *connect_go.Client[v1.GreetStreamingRequest, v1.GreetStreamingResponse]
-	greetDidiStreaming *connect_go.Client[v1.GreetDidiStreamingRequest, v1.GreetDidiStreamingResponse]
+	greet              *connect.Client[v1.GreetRequest, v1.GreetResponse]
+	greetStreaming     *connect.Client[v1.GreetStreamingRequest, v1.GreetStreamingResponse]
+	greetDidiStreaming *connect.Client[v1.GreetDidiStreamingRequest, v1.GreetDidiStreamingResponse]
 }
 
 // Greet calls proto.greet.v1.GreetService.Greet.
-func (c *greetServiceClient) Greet(ctx context.Context, req *connect_go.Request[v1.GreetRequest]) (*connect_go.Response[v1.GreetResponse], error) {
+func (c *greetServiceClient) Greet(ctx context.Context, req *connect.Request[v1.GreetRequest]) (*connect.Response[v1.GreetResponse], error) {
 	return c.greet.CallUnary(ctx, req)
 }
 
 // GreetStreaming calls proto.greet.v1.GreetService.GreetStreaming.
-func (c *greetServiceClient) GreetStreaming(ctx context.Context) *connect_go.ClientStreamForClient[v1.GreetStreamingRequest, v1.GreetStreamingResponse] {
+func (c *greetServiceClient) GreetStreaming(ctx context.Context) *connect.ClientStreamForClient[v1.GreetStreamingRequest, v1.GreetStreamingResponse] {
 	return c.greetStreaming.CallClientStream(ctx)
 }
 
 // GreetDidiStreaming calls proto.greet.v1.GreetService.GreetDidiStreaming.
-func (c *greetServiceClient) GreetDidiStreaming(ctx context.Context) *connect_go.BidiStreamForClient[v1.GreetDidiStreamingRequest, v1.GreetDidiStreamingResponse] {
+func (c *greetServiceClient) GreetDidiStreaming(ctx context.Context) *connect.BidiStreamForClient[v1.GreetDidiStreamingRequest, v1.GreetDidiStreamingResponse] {
 	return c.greetDidiStreaming.CallBidiStream(ctx)
 }
 
 // GreetServiceHandler is an implementation of the proto.greet.v1.GreetService service.
 type GreetServiceHandler interface {
-	Greet(context.Context, *connect_go.Request[v1.GreetRequest]) (*connect_go.Response[v1.GreetResponse], error)
-	GreetStreaming(context.Context, *connect_go.ClientStream[v1.GreetStreamingRequest]) (*connect_go.Response[v1.GreetStreamingResponse], error)
-	GreetDidiStreaming(context.Context, *connect_go.BidiStream[v1.GreetDidiStreamingRequest, v1.GreetDidiStreamingResponse]) error
+	Greet(context.Context, *connect.Request[v1.GreetRequest]) (*connect.Response[v1.GreetResponse], error)
+	GreetStreaming(context.Context, *connect.ClientStream[v1.GreetStreamingRequest]) (*connect.Response[v1.GreetStreamingResponse], error)
+	GreetDidiStreaming(context.Context, *connect.BidiStream[v1.GreetDidiStreamingRequest, v1.GreetDidiStreamingResponse]) error
 }
 
 // NewGreetServiceHandler builds an HTTP handler from the service implementation. It returns the
@@ -114,37 +114,47 @@ type GreetServiceHandler interface {
 //
 // By default, handlers support the Connect, gRPC, and gRPC-Web protocols with the binary Protobuf
 // and JSON codecs. They also support gzip compression.
-func NewGreetServiceHandler(svc GreetServiceHandler, opts ...connect_go.HandlerOption) (string, http.Handler) {
-	mux := http.NewServeMux()
-	mux.Handle(GreetServiceGreetProcedure, connect_go.NewUnaryHandler(
+func NewGreetServiceHandler(svc GreetServiceHandler, opts ...connect.HandlerOption) (string, http.Handler) {
+	greetServiceGreetHandler := connect.NewUnaryHandler(
 		GreetServiceGreetProcedure,
 		svc.Greet,
 		opts...,
-	))
-	mux.Handle(GreetServiceGreetStreamingProcedure, connect_go.NewClientStreamHandler(
+	)
+	greetServiceGreetStreamingHandler := connect.NewClientStreamHandler(
 		GreetServiceGreetStreamingProcedure,
 		svc.GreetStreaming,
 		opts...,
-	))
-	mux.Handle(GreetServiceGreetDidiStreamingProcedure, connect_go.NewBidiStreamHandler(
+	)
+	greetServiceGreetDidiStreamingHandler := connect.NewBidiStreamHandler(
 		GreetServiceGreetDidiStreamingProcedure,
 		svc.GreetDidiStreaming,
 		opts...,
-	))
-	return "/proto.greet.v1.GreetService/", mux
+	)
+	return "/proto.greet.v1.GreetService/", http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		switch r.URL.Path {
+		case GreetServiceGreetProcedure:
+			greetServiceGreetHandler.ServeHTTP(w, r)
+		case GreetServiceGreetStreamingProcedure:
+			greetServiceGreetStreamingHandler.ServeHTTP(w, r)
+		case GreetServiceGreetDidiStreamingProcedure:
+			greetServiceGreetDidiStreamingHandler.ServeHTTP(w, r)
+		default:
+			http.NotFound(w, r)
+		}
+	})
 }
 
 // UnimplementedGreetServiceHandler returns CodeUnimplemented from all methods.
 type UnimplementedGreetServiceHandler struct{}
 
-func (UnimplementedGreetServiceHandler) Greet(context.Context, *connect_go.Request[v1.GreetRequest]) (*connect_go.Response[v1.GreetResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("proto.greet.v1.GreetService.Greet is not implemented"))
+func (UnimplementedGreetServiceHandler) Greet(context.Context, *connect.Request[v1.GreetRequest]) (*connect.Response[v1.GreetResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("proto.greet.v1.GreetService.Greet is not implemented"))
 }
 
-func (UnimplementedGreetServiceHandler) GreetStreaming(context.Context, *connect_go.ClientStream[v1.GreetStreamingRequest]) (*connect_go.Response[v1.GreetStreamingResponse], error) {
-	return nil, connect_go.NewError(connect_go.CodeUnimplemented, errors.New("proto.greet.v1.GreetService.GreetStreaming is not implemented"))
+func (UnimplementedGreetServiceHandler) GreetStreaming(context.Context, *connect.ClientStream[v1.GreetStreamingRequest]) (*connect.Response[v1.GreetStreamingResponse], error) {
+	return nil, connect.NewError(connect.CodeUnimplemented, errors.New("proto.greet.v1.GreetService.GreetStreaming is not implemented"))
 }
 
-func (UnimplementedGreetServiceHandler) GreetDidiStreaming(context.Context, *connect_go.BidiStream[v1.GreetDidiStreamingRequest, v1.GreetDidiStreamingResponse]) error {
-	return connect_go.NewError(connect_go.CodeUnimplemented, errors.New("proto.greet.v1.GreetService.GreetDidiStreaming is not implemented"))
+func (UnimplementedGreetServiceHandler) GreetDidiStreaming(context.Context, *connect.BidiStream[v1.GreetDidiStreamingRequest, v1.GreetDidiStreamingResponse]) error {
+	return connect.NewError(connect.CodeUnimplemented, errors.New("proto.greet.v1.GreetService.GreetDidiStreaming is not implemented"))
 }

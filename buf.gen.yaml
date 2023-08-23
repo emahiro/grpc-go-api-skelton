@@ -6,9 +6,9 @@ managed:
     except:
       - buf.build/bufbuild/protovalidate
 plugins:
-  - plugin: go
+  - plugin: buf.build/protocolbuffers/go:v1.31.0
     out: gen
     opt: paths=source_relative
-  - plugin: connect-go
+  - plugin: buf.build/connectrpc/go:v1.11.0
     out: gen
     opt: paths=source_relative
