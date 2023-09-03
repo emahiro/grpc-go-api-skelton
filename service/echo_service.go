@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	connect "github.com/bufbuild/connect-go"
+	connect "connectrpc.com/connect"
 
 	v1 "github.com/emahiro/grpc-go-api-skelton/gen/proto/echo/v1"
 )
